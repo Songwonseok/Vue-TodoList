@@ -1,49 +1,30 @@
 <template>
   <div class="inputBox shadow">
-    <input type="text" v-model="newTodoItem" v-on:keyup.enter="addTodo">
-    <!-- <button v-on:click="addTodo">add</button> -->
-    <span class="addContainer" v-on:click="addTodo">
-      <i class="fas fa-plus addBtn"></i>
-    </span>
-
-    <Modal v-if="showModal" @close="showModal = false">
-      <h3 slot="header">
-        경고!
-        <i class="closeModalBtn fas fa-times" @click="showModal = false"></i>
-      </h3>
-      <div slot="body">값을 등록해주세요</div>
-      
-    </Modal>
+      <input type="text" v-model="newTodoItem">
+      <button v-on:click="addTodo">add</button>
+      <span class="addContainer">
+        
+      </span>
   </div>
 </template>
 
 <script>
-import Modal from './common/Modal.vue'
-
 export default {
-  data() {
-    return {
-      newTodoItem: "",
-      showModal: false
+  data:function(){
+    return{
+      newTodoItem:""
     }
   },
-  methods: {
-    addTodo() {
-      if(this.newTodoItem !== ''){
-
-        //상위 컴포넌트로 이벤트 보냄 this.$emit('이벤트 이름', 인자1, 인자2 ....)
-        this.$emit('addTodoItem', this.newTodoItem)
-        this.clearInput();
-      }else{
-        this.showModal = !this.showModal
-      }
+  methods:{
+    addTodo:function(){
+      console.log(this.newTodoItem);
+      // 저장하는 로직
+      localStorage.setItem(this.newTodoItem, this.newTodoItem);
+      this.clearInput();
     },
-    clearInput() {
-      this.newTodoItem =  '';
+    clearInput:function(){
+      this.newTodoItem ='';
     }
-  },
-  components: {
-    Modal
   }
 }
 </script>
