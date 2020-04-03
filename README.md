@@ -9,7 +9,7 @@
 4. 실행 : npm run serve
 ```
 
-## vue 아이콘 추가
+## 아이콘 만들기
 [Font Awesome](https://fontawesome.com/icons?d=gallery)
 ```
 1) 원하는 아이콘 검색
