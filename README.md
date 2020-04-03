@@ -10,15 +10,13 @@
 ```
 
 ## vue 아이콘 추가
+[Font Awesome](https://fontawesome.com/icons?d=gallery)
 ```
-1) [Font Awesome](https://fontawesome.com/icons?d=gallery).
-
-2) 원하는 아이콘 검색
+1) 원하는 아이콘 검색
 ex) plus 검색
 
-3) Copy HTML 
+2) Copy HTML 
 ex) <i class="fas fa-plus"></i>
-
 ```
 ## Vue단축키
 ```
