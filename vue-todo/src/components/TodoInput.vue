@@ -5,14 +5,32 @@
       <span class="addContainer" v-on:click="addTodo">
         <i class="fas fa-plus addBtn"></i>
       </span>
+
+      <Modal v-if="showModal" @close="showModal = false">
+        <!--
+      you can use custom content here to overwrite
+      default content
+    -->
+        <h3 slot="header">경고!
+          <!-- v-on:click == @click -->
+          <i class="fas fa-times closeModalBtn" @click="showModal = false"></i>
+        </h3>
+        <div slot="body">
+          내용을 입력하세요
+        </div>
+
+      </Modal>
   </div>
 </template>
 
 <script>
+import Modal from './common/Modal.vue'
+
 export default {
   data:function(){
     return{
-      newTodoItem:""
+      newTodoItem:"",
+      showModal: false
     }
   },
   methods:{
@@ -20,11 +38,17 @@ export default {
       if(this.newTodoItem !== ''){
         this.$emit('addTodoItem',this.newTodoItem);
         this.clearInput();
-      } 
+      } else{
+        //alert('Type Something')
+        this.showModal = !this.showModal;
+      }
     },
     clearInput:function(){
       this.newTodoItem ='';
     }
+  },
+  components:{
+    Modal : Modal
   }
 }
 </script>
@@ -56,5 +80,6 @@ export default {
   }
   .closeModalBtn {
     color: #42b983;
+    float:right;
   }
 </style>
