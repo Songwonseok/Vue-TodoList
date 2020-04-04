@@ -1,5 +1,12 @@
 ﻿# Vue.js CRUD 연습을 위한 Todo-List 만들기
 
+## vue 장점
+```
+- 애니메이션이나 트랜지션이 프레임워크 자체적으로 제공되서 디자이너와 퍼블리셔들이 좋아하는 기능이 많음
+- 가벼움
+- 진입장벽이 낮음
+```
+
 ## 프로젝트 만들기
 ```
 1. npm install -g @vue/cli
@@ -77,11 +84,27 @@ ex) methods : {
 	addOneItem: function(){} -> addOneItem(){}
 }
 - 속성명 축약
+속성
 ex) var dictionary = { figures : figures} -> {figures}
 ```
 
-vue 장점
-- 애니메이션이나 트랜지션이 프레임워크 자체적으로 제공되서 디자이너와 퍼블리셔들이 좋아하는 기능이 많음
-- 가벼움
-- 진입장벽이 낮음
-- 
+## Vuex
+### Vuex란?
+
+### Flux란?
+
+### Vuex로 해결할 수 있는 문제
+#### 1. MVC 패턴에서 발생하는 구조적 오류
+#### 2. 컴포넌트 간 데이터 전달 명시
+#### 3. 여러 개의 컴포넌트에서 같은 데이터를 업데이트 할 때 동기화 문제
+
+### Vuex 구조
+
+[비동기 처리 이해하기](https://joshua1988.github.io/web-development/javascript/promise-for-beginners/)
+
+### Vuex 설치 및 설정
+```
+1. npm i vuex --save
+2. store 폴더 생성 - store.js 생성 - import Vue, Vuex - Vue.user(Vuex)
+3. main.js에 import
+```
