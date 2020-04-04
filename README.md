@@ -9,7 +9,7 @@
 4. 실행 : npm run serve
 ```
 
-## vue 아이콘 추가
+## 아이콘 추가
 [Font Awesome](https://fontawesome.com/icons?d=gallery)
 ```
 1) 원하는 아이콘 검색
@@ -62,6 +62,22 @@ slot이란?
 사용법
 1. example css를 <style>에 복사
 2. <transition-group name="list" tag="p">를 <template>안으로 복사 이때 tag는 사용할 태그로 수정
+```
+
+## ES6
+[Bable](https://babeljs.io/repl/#?browsers=&build=&builtIns=false&spec=false&loose=false&code_lz=Q&debug=false&forceAllTransforms=false&shippedProposals=false&circleciRepo=&evaluate=false&fileSize=false&timeTravel=false&sourceType=module&lineWrap=true&presets=es2015%2Creact%2Cstage-2&prettier=false&targets=&version=7.9.0&externalPlugins=)
+```
+1. Arrow Function(화살표 함수) 
+var arr = [1,2,3];
+arr.forEach(value => console.log(value));
+
+2. Enhanced Object Literals
+- 속성 메서드의 축약
+ex) methods : {
+	addOneItem: function(){} -> addOneItem(){}
+}
+- 속성명 축약
+ex) var dictionary = { figures : figures} -> {figures}
 ```
 
 vue 장점

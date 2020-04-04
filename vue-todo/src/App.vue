@@ -16,15 +16,15 @@ import TodoList from './components/TodoList.vue'
 import TodoInput from './components/TodoInput.vue'
 
 export default {
-  data:function(){
+  data(){
     return {
       todoItems : []
     }
   },
   // 인스턴스 생성되는 시점에서 실행됨
-  created:function(){
+  created(){
     if(localStorage.length > 0){
-      for (var i=0; i<localStorage.length;i++){
+      for (let i=0; i<localStorage.length;i++){
         if(localStorage.key(i) !== 'loglevel:webpack-dev-server')
           this.todoItems.push(JSON.parse(localStorage.getItem(localStorage.key(i))));
           //this.todoItems.push(localStorage.key(i)
@@ -33,21 +33,21 @@ export default {
     }
   },
   methods:{
-    addOneItem:function(todoItem){
-      var obj = {completed:false, item : todoItem};
+    addOneItem(todoItem){
+      const obj = {completed:false, item : todoItem};
       localStorage.setItem(todoItem, JSON.stringify(obj));
       this.todoItems.push(obj);
     },
-    removeOneItem:function(todoItem,index){
+    removeOneItem(todoItem,index){
       localStorage.removeItem(todoItem.item);
       this.todoItems.splice(index, 1); // index에서 1개를 지움
     },
-    clearAll:function(){
+    clearAll(){
       localStorage.clear();
       //this.todoItems.splice(0);
       this.todoItems = [];
     },
-    toggleItem:function(todoItem, index){
+    toggleItem(todoItem, index){
       this.todoItems[index].completed = !this.todoItems[index].completed
       //로컬 스토리지에 데이터를 갱신
       localStorage.removeItem(todoItem.item);
@@ -55,10 +55,10 @@ export default {
     }
   },
   components: {
-    'TodoHeader' : TodoHeader,
-    'TodoFooter': TodoFooter,
-    'TodoList':TodoList,
-    'TodoInput':TodoInput
+    TodoHeader,
+    TodoFooter,
+    TodoList,
+    TodoInput
   }
 }
 </script>
