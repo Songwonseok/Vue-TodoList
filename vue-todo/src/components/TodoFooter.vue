@@ -7,13 +7,12 @@
 <script>
 export default {
   methods:{
-    clearTodo:function(){
-      localStorage.clear();
+    clearTodo(){
+      this.$store.commit('clearAll');
     }
   }
 }
 </script>
-
 <style scoped>
 .clearAllContainer {
   width: 8.5rem;
