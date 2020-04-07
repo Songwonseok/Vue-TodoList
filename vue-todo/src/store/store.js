@@ -20,5 +20,26 @@ export const store = new Vuex.Store({
     state:{
         headerText: 'Todo it!',
         todoItems: storage.fetch(),
+    },
+    mutations:{
+        addOneItem(state, todoItem){
+            const obj = {completed:false, item : todoItem};
+            localStorage.setItem(todoItem, JSON.stringify(obj));
+            state.todoItems.push(obj);
+          },
+          removeOneItem(state,payload){
+            localStorage.removeItem(payload.todoItem.item);
+            state.todoItems.splice(payload.index, 1); // index에서 1개를 지움
+          },
+          clearAll(state){
+            localStorage.clear();
+            state.todoItems = [];
+          },
+          toggleItem(state,payload){
+            state.todoItems[payload.index].completed = ! state.todoItems[payload.index].completed;
+            //로컬 스토리지에 데이터를 갱신
+            localStorage.removeItem(payload.todoItem.item);
+            localStorage.setItem(payload.todoItem.item, JSON.stringify(payload.todoItem));
+          }
     }
 });
