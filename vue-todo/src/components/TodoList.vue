@@ -25,7 +25,6 @@ export default {
     },
     toggleComplete(todoItem, index){
       this.$store.commit('toggleItem',{todoItem,index});
-
     }
   }
 }
